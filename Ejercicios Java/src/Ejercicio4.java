@@ -13,7 +13,7 @@ public class Ejercicio4 {
         cantidad=entrada.nextInt();
 
         for(int i=0;i<cantidad;i++){
-            random=random1.nextInt(1,100);
+            random=random1.nextInt(100)+1;
             numeros.add(random);
             acum+=random;
         }

@@ -5,7 +5,7 @@ public class Ejercicio6 {
         while (l.size()<10){
             Integer random=0;
             Random random1=new Random();
-            random=random1.nextInt(200,1000);
+            random=random1.nextInt(1000)+200;
             l.add(random);
         }
         return l;

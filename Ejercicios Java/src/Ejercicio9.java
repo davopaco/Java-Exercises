@@ -13,7 +13,7 @@ public class Ejercicio9 {
         Random random1=new Random();
         List<Integer>arrRan=new ArrayList<>();
         for(int i=0;i<tam1;i++){
-            int random=random1.nextInt(1,50);
+            int random=random1.nextInt(50)+1;
             arrRan.add(random);
         }
         return arrRan;

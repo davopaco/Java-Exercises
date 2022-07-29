@@ -14,7 +14,7 @@ public class Ejercicio7 {
 
         while (vector.size()<20){
             Random random1 = new Random();
-            int random=random1.nextInt(0,10);
+            int random=random1.nextInt(10);
             vector.add(random);
         }
 

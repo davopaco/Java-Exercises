@@ -11,7 +11,7 @@ public class Ejercicio5 {
 
         for (int r=0;r<numeros.length;r++){
             if(r<numeros.length){
-                random = random1.nextInt(15, 86);
+                random = random1.nextInt(86)+15;
                 numeros[r] = random;
             }
         }

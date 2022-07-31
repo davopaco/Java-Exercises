@@ -6,11 +6,10 @@ public class Ejercicio2 {
         int numMayor = 0, cantidadM = 0, cantidad = 0, entNum = 0, i = 0;
         List<Integer> numeros = new ArrayList<Integer>();
         Scanner entrada = new Scanner(System.in);
-        boolean rep = false;
 
         System.out.println("===SEGUNDO EJERCICIO===");
 
-        while (!rep) {
+        while (true) {
             try {
                 if (cantidad == 0) {
                     System.out.println("Digita la cantidad de numeros a ingresar: ");
@@ -26,20 +25,15 @@ public class Ejercicio2 {
                     entNum = entrada.nextInt();
                     numeros.add(entNum);
                 }
-                rep = true;
                 entrada.close();
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("\nIngrese un número valido.\n");
             } catch (ArithmeticException e) {
                 System.out.println("\nLa cantidad no puede ser negativa.\n");
+                cantidad=0;
             }
-    
-            if (!(cantidad < 0)) {
-                entrada.next();
-            } else if (cantidad < 0) {
-                cantidad = 0;
-            }
+            entrada.nextLine();
         }
 
         numMayor = Collections.max(numeros, null);

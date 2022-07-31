@@ -7,11 +7,10 @@ public class Ejercicio1 {
         double sumtot = 0, sumpos = 0, sumneg = 0, numero = 0;
         int i = 0, cantidad = 0;
         Scanner entrada = new Scanner(System.in);
-        boolean rep = false;
 
         System.out.println("===PRIMER EJERCICIO===");
 
-        while (!rep) {
+        while (true) {
             try {
                 if (cantidad == 0) {
                     System.out.println("Digite la cantidad de numeros a ingresar: ");
@@ -31,22 +30,17 @@ public class Ejercicio1 {
                     }
                     i++;
                 }
-                rep = true;
                 entrada.close();
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("\nIngrese un número valido.\n");
             } catch (ArithmeticException e) {
                 System.out.println("\nLa cantidad no puede ser negativa.\n");
+                cantidad=0;
             }
-
-            if (!(cantidad < 0)) {
-                entrada.next();
-            } else if (cantidad < 0) {
-                cantidad = 0;
-            }
-
+            entrada.nextLine();
         }
         System.out.println("-----SUMAS-----\nLa suma total es de: " + sumtot + "\nLa suma de positivos es de: " + sumpos + "\nLa suma de negativos es de: " + sumneg);
     }
 }
+                

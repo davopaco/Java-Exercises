@@ -31,7 +31,7 @@ public class Ejercicio2 {
                 System.out.println("\nIngrese un número valido.\n");
             } catch (ArithmeticException e) {
                 System.out.println("\nLa cantidad no puede ser negativa.\n");
-                cantidad=0;
+                cantidad = 0;
             }
             entrada.nextLine();
         }

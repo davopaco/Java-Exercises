@@ -1,30 +1,29 @@
 import java.util.*;
 
 public class Ejercicio3 {
-    public static boolean isCousin(int num1) {
-        for (int j = 2; j <= num1; j++) {
+
+    public static boolean isPrime(int num1) {
+        boolean result=true;
+        for (int j = 2; j < num1; j++) {
             if (num1 % j == 0) {
-                return false;
+                result=false;
             }
-            return true;
         }
-        return true;
+        return result;
     }
 
     public static void main(String[] args) {
-        int i=0, cantidad=0;
-        int num=2;
+        int i=0, cantidad=0, num=2;
         List<Integer> numPrimos = new LinkedList<>() ;
         Scanner  entrada = new Scanner(System.in);
-        numPrimos.add(2);
 
         System.out.println("===TERCER EJERCICIO===\n");
 
         System.out.println("Digita la cantidad de numeros primos que solicita: ");
         cantidad=entrada.nextInt();
 
-        while(i<cantidad-1){
-            if (isCousin(num)) {
+        while(i<cantidad){
+            if (isPrime(num)) {
                 numPrimos.add(num);
                 i++;
             }

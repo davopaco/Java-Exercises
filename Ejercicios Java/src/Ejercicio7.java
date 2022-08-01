@@ -15,14 +15,13 @@ public class Ejercicio7 {
     public static void main(String[] args) {
         int ceros = 0, cont = 0;
         int[] vector = new int[20];
-        int[] vectorantes = new int[20];
 
         System.out.println("===SEPTIMO EJERCICIO===");
 
         hacerArreglos(vector);
-        vectorantes = vector.clone();
+        System.out.println("El vector antes es: " + Arrays.toString(vector));
 
-        for (int num : vectorantes) {
+        for (int num : vector) {
             if (num == 0) {
                 ceros++;
             }
@@ -42,7 +41,6 @@ public class Ejercicio7 {
             cont++;
         }
 
-        System.out.println("El vector antes es: " + Arrays.toString(vectorantes));
         System.out.println("El nuevo vector es: " + Arrays.toString(vector));
     }
 }

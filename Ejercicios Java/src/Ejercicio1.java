@@ -4,11 +4,15 @@ public class Ejercicio1 {
 
     public static void main(String[] args) {
 
+        // Inicializacion de variables
+
         double sumtot = 0, sumpos = 0, sumneg = 0, numero = 0;
         int i = 0, cantidad = 0;
         Scanner entrada = new Scanner(System.in);
 
         System.out.println("===PRIMER EJERCICIO===");
+
+        // Try-catch para ingresos en el Scanner con un while indefinido
 
         while (true) {
             try {
@@ -40,6 +44,9 @@ public class Ejercicio1 {
             }
             entrada.nextLine();
         }
+
+        // Salida de los valores
+
         System.out.println("-----SUMAS-----\nLa suma total es de: " + sumtot + "\nLa suma de positivos es de: " + sumpos
                 + "\nLa suma de negativos es de: " + sumneg);
     }

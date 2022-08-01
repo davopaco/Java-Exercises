@@ -18,6 +18,7 @@ public class Ejercicio4 {
                 if (cantidad < 0) {
                     throw new InputMismatchException();
                 }
+                entrada.close();
                 break;
 
             } catch (InputMismatchException e) {

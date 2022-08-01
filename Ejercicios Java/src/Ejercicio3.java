@@ -25,6 +25,7 @@ public class Ejercicio3 {
                 if (cantidad < 0) {
                     throw new InputMismatchException();
                 }
+                entrada.close();
                 break;
 
             } catch (InputMismatchException e) {

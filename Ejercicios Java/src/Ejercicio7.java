@@ -1,42 +1,39 @@
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Ejercicio7 {
+
+    public static int[] hacerArreglos(int[] l) {
+        int random = 0;
+        for (int i = 0; i < 20; i++) {
+            Random random1 = new Random();
+            random = random1.nextInt(11);
+            l[i] = random;
+        }
+        return l;
+    }
+
     public static void main(String[] args) {
-        int con=0;
-        List<Integer>vector=new LinkedList<>();
-        List<Integer>vectorantes=new LinkedList<>();
-        List<Integer>temporal=new LinkedList<>();
+        int con = 0;
+        int[] vector = new int[20];
+        int[] vectorantes = new int[20];
 
         System.out.println("===SEPTIMO EJERCICIO===");
 
-        while (vector.size()<20){
-            Random random1 = new Random();
-            int random=random1.nextInt(10);
-            vector.add(random);
-        }
-
-        vectorantes.addAll(vector);
-        System.out.println("El vector antes es: "+vector);
-
-        Iterator<Integer> it=vector.iterator();
-
-        while (it.hasNext()){
-            Integer num= it.next();
-            if(num!=0){
-                temporal.add(num);
-            }else {
-                con++;
+        hacerArreglos(vector);
+        vectorantes = vector.clone();
+        
+        for (int i = 0; i < 20; i++) {
+            if (vector[i] == 0) {
+                for (int j = i; j < 20; j++) {
+                    if ((j + 1) < 20) {
+                        vector[j] = vector[j + 1];
+                        vector[j + 1] = 0;
+                    }
+                }
             }
         }
-        vector.clear();
-        vector.addAll(temporal);
-        for (int i=0;i<con;i++){
-            vector.add(0);
-        }
 
-        System.out.println("El nuevo vector es: "+vector);
+        System.out.println("El vector antes es: " + Arrays.toString(vectorantes));
+        System.out.println("El nuevo vector es: " + Arrays.toString(vector));
     }
 }

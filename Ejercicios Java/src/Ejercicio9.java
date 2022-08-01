@@ -1,42 +1,71 @@
 import java.util.*;
 
 public class Ejercicio9 {
-    public static void verificarValor(Integer val, List<Integer>arr){
-        if(arr.contains(val)){
-            System.out.println("El valor "+val+" esta en el arreglo.");
-        }else {
-            System.out.println("El valor "+val+" no esta en el arreglo.");
+    public static void verificarValor(int val, int[] arr) {
+        boolean ex = Arrays.stream(arr).anyMatch(x -> x == val);
+        if (ex) {
+            System.out.println("El valor " + val + " esta en el arreglo.");
+        } else {
+            System.out.println("El valor " + val + " no esta en el arreglo.");
         }
     }
 
-    public static List generarRandom(int tam1){
-        Random random1=new Random();
-        List<Integer>arrRan=new ArrayList<>();
-        for(int i=0;i<tam1;i++){
-            int random=random1.nextInt(50)+1;
-            arrRan.add(random);
+    public static int[] hacerArreglos(int num) {
+        int random = 0;
+        int[] arregloRan = new int[num];
+        for (int i = 0; i < num; i++) {
+            Random random1 = new Random();
+            random = random1.nextInt(50) + 1;
+            arregloRan[i] = random;
         }
-        return arrRan;
+        return arregloRan;
     }
 
     public static void main(String[] args) {
 
-        int tam, valor;
-        List<Integer> arr1;
-        Scanner entrada=new Scanner(System.in);
+        int tam = 0, valor = 0;
+        int[] arr1;
+        Scanner entrada = new Scanner(System.in);
 
         System.out.println("===NOVENO EJERCICIO===");
 
-        System.out.println("Digite el tamaño del arreglo: ");
-        tam=entrada.nextInt();
-        arr1=generarRandom(tam);
+        while (true) {
+            try {
+                System.out.println("Digite el tamaño del arreglo: ");
+                tam = entrada.nextInt();
+                if(tam<0){
+                    throw new InputMismatchException();
+                }
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Ingrese un numero valido.");
+                tam = 0;
+            }
+            entrada.nextLine();
+        }
+
+        arr1 = hacerArreglos(tam);
 
         System.out.println("\nLos valores del arreglo son:");
-        System.out.println(arr1);
+        System.out.println(Arrays.toString(arr1));
 
-        System.out.println("\nDigita el valor a buscar en el arreglo (1 a 50): ");
-        valor=entrada.nextInt();
-
-        verificarValor(valor,arr1);
+        while (true) {
+            try {
+                System.out.println("\nDigita el valor a buscar en el arreglo (1 a 50): ");
+                valor = entrada.nextInt();
+                if(!(valor>=1 && valor<=50)){
+                    throw new ArithmeticException();
+                }
+                verificarValor(valor, arr1);
+                entrada.close();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Ingrese un numero valido.");
+                tam = 0;
+            }catch (ArithmeticException e){
+                System.out.println("Los valores van del 1 al 50.");
+            }
+            entrada.nextLine();
+        }
     }
 }

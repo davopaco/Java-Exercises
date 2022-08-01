@@ -1,5 +1,6 @@
 import java.text.DecimalFormat;
 import java.util.*;
+
 public class Ejercicio10 {
 
     public static float calcValor(float pes) {

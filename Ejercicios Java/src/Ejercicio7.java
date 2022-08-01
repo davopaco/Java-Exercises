@@ -13,7 +13,7 @@ public class Ejercicio7 {
     }
 
     public static void main(String[] args) {
-        int con = 0;
+        int ceros = 0, cont = 0;
         int[] vector = new int[20];
         int[] vectorantes = new int[20];
 
@@ -21,16 +21,25 @@ public class Ejercicio7 {
 
         hacerArreglos(vector);
         vectorantes = vector.clone();
-        
-        for (int i = 0; i < 20; i++) {
-            if (vector[i] == 0) {
-                for (int j = i; j < 20; j++) {
-                    if ((j + 1) < 20) {
-                        vector[j] = vector[j + 1];
-                        vector[j + 1] = 0;
+
+        for (int num : vectorantes) {
+            if (num == 0) {
+                ceros++;
+            }
+        }
+
+        while (cont < ceros) {
+            for (int i = 0; i < 20; i++) {
+                if (vector[i] == 0) {
+                    for (int j = i; j < 20; j++) {
+                        if ((j + 1) < 20) {
+                            vector[j] = vector[j + 1];
+                            vector[j + 1] = 0;
+                        }
                     }
                 }
             }
+            cont++;
         }
 
         System.out.println("El vector antes es: " + Arrays.toString(vectorantes));

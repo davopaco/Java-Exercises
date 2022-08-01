@@ -35,37 +35,40 @@ public class Ejercicio10 {
         int i = 0;
 
         System.out.println("===DECIMO EJERCICIO===");
-
-        try {
-            for (; i < cantBultos; i++) {
-                System.out.println("Digite la cantidad de bultos a ingresar: ");
-                cantBultos = entrada.nextInt();
-                if(cantBultos<0){
-                    throw new ;
+        while (true) {
+            try {
+                if (cantBultos == 0) {
+                    System.out.println("Digite la cantidad de bultos a ingresar: ");
+                    cantBultos = entrada.nextInt();
+                }
+                if (cantBultos < 0) {
+                    throw new IllegalStateException();
                 }
 
-                System.out.println("Digite el peso de bulto número " + (i + 1) + ": ");
-                pesoBulto = entrada.nextInt();
-                pesoTot += pesoBulto;
-
-                if (pesoTot > 18000 || pesoBulto > 500) {
+                for (; i < cantBultos; i++) {
                     System.out.println("Digite el peso de bulto número " + (i + 1) + ": ");
                     pesoBulto = entrada.nextInt();
+
+                    if (pesoTot > 18000 || pesoBulto > 500) {
+                        throw new ArithmeticException();
+                    }
                     pesoTot += pesoBulto;
-                } else {
-                    throw new ArithmeticException();
+                    valor = calcValor(pesoBulto);
+                    ingresos += valor;
+                    bultos.add(pesoBulto);
                 }
-                valor = calcValor(pesoBulto);
-                ingresos += valor;
-                bultos.add(pesoBulto);
+                entrada.close();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("\nIngrese un numero valido.\n");
+            } catch (ArithmeticException e) {
+                System.out.println("El valor ingresado excede la capacidad maxima o no es valido.");
+            } catch (IllegalStateException e) {
+                System.out.println("\nIngrese un numero positivo.\n");
+                cantBultos = 0;
             }
-        } catch (InputMismatchException e) {
-            System.out.println("\nIngrese un numero valido.\n");
-        } catch (ArithmeticException e) {
-            System.out.println("El valor ingresado excede la capacidad maxima");
-            pesoTot -= pesoBulto;
+            entrada.nextLine();
         }
-        entrada.nextLine();
 
         pesoMax = Collections.max(bultos);
         pesoMin = Collections.min(bultos);

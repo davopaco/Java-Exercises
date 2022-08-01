@@ -33,12 +33,12 @@ public class Ejercicio9 {
             try {
                 System.out.println("Digite el tamaño del arreglo: ");
                 tam = entrada.nextInt();
-                if(tam<0){
+                if (tam < 0) {
                     throw new InputMismatchException();
                 }
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("Ingrese un numero valido.");
+                System.out.println("\nIngrese un numero valido.\n");
                 tam = 0;
             }
             entrada.nextLine();
@@ -53,17 +53,17 @@ public class Ejercicio9 {
             try {
                 System.out.println("\nDigita el valor a buscar en el arreglo (1 a 50): ");
                 valor = entrada.nextInt();
-                if(!(valor>=1 && valor<=50)){
+                if (!(valor >= 1 && valor <= 50)) {
                     throw new ArithmeticException();
                 }
                 verificarValor(valor, arr1);
                 entrada.close();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("Ingrese un numero valido.");
+                System.out.println("\nIngrese un numero valido.\n");
                 tam = 0;
-            }catch (ArithmeticException e){
-                System.out.println("Los valores van del 1 al 50.");
+            } catch (ArithmeticException e) {
+                System.out.println("\nLos valores van del 1 al 50.\n");
             }
             entrada.nextLine();
         }

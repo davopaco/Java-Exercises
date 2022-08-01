@@ -1,10 +1,5 @@
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
-
+import java.util.*;
 public class Ejercicio10 {
 
     public static float calcValor(float pes) {

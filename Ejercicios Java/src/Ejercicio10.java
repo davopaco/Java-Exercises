@@ -38,13 +38,16 @@ public class Ejercicio10 {
                     cantBultos = entrada.nextInt();
                 }
                 if (cantBultos < 0) {
+                    cantBultos = 0;
                     throw new IllegalStateException();
                 }
 
                 for (; i < cantBultos; i++) {
                     System.out.println("Digite el peso de bulto número " + (i + 1) + ": ");
                     pesoBulto = entrada.nextInt();
-
+                    if(pesoBulto<0){
+                        throw new IllegalStateException();
+                    }
                     if (pesoTot > 18000 || pesoBulto > 500) {
                         throw new ArithmeticException();
                     }
@@ -61,7 +64,6 @@ public class Ejercicio10 {
                 System.out.println("El valor ingresado excede la capacidad maxima o no es valido.");
             } catch (IllegalStateException e) {
                 System.out.println("\nIngrese un numero positivo.\n");
-                cantBultos = 0;
             }
             entrada.nextLine();
         }
